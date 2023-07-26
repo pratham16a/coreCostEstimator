@@ -4,6 +4,7 @@ const ejs = require("ejs");
 const port = process.env.PORT || 9000;
 const app = express();
 const mongoose = require('mongoose');
+const _ = require('lodash');
 
 app.use(bodyParser.urlencoded({extended : true}));
 app.use(express.static("public"));
@@ -68,7 +69,7 @@ const NaggCollection = mongoose.model("Nagg", NaggSchema);
 const ProductionDetailCollection = mongoose.model("ProductionDetail", ProductionReportSchema);
 const HisaabCollection = mongoose.model("Hisaab", HisaabSchema);
 
-const hisaabInstance = new HisaabCollection;
+
 
 //---------------------------------------------------global variables
 
@@ -136,16 +137,24 @@ function NaggDetail(netWeight, kaat , mixFatti, priceMixFatti, priceWood, date, 
 		this.date = this.date.toLocaleDateString("en-US", {day : "numeric", month : "numeric", year : "numeric"});
 	}
 	this.party = String(party);
+	this.party = _.kebabCase(this.party);
 	this.typeOfWood = String(typeOfWood);
+	this.typeOfWood = _.kebabCase(this.typeOfWood);
 }
 var productionDetailArray = []; //array of production details
 var naggDetailArray = []; //array of nagg details
 //---------------------------------------------------GETS
 app.get("/", function(req, res){
+	res.render("main");
+});
+
+app.get("/index", function(req, res){
 	res.render("index");
 });
 
 app.get("/cpr", function(req, res){
+	globalThis.hisaabInstance = new HisaabCollection;
+	console.log("\n\nhisaab instance has been created\n\n");
 	res.render("cpr", {
 		noOfRows_CoreProduction : noOfRows_CoreProduction
 	});
@@ -233,6 +242,9 @@ app.get("/results", function(req, res){
 });
 //-------------------------------------------------POSTS
 app.post("/", function(req, res){
+	res.redirect("/index");
+});
+app.post("/index", function(req, res){
 	noOfRows_CoreProduction = req.body.noOfRows_CoreProduction;
 	noOfVehicles = req.body.noOfVehicles;
 	console.log(noOfRows_CoreProduction, noOfVehicles);
@@ -280,7 +292,7 @@ app.listen(port, function(){
 //----------------------------------------------------------custom functions
 function separatingReceivedArraysPR (l, b, bu, pi) {
 
-	if (noOfRows_CoreProduction === 1){
+	if (noOfRows_CoreProduction == 1){
 		var tempDoc = new ProductionDetail(l, b, bu, pi);
 		const productionDetail = new ProductionDetailCollection({
 			length : tempDoc.length,
@@ -329,8 +341,8 @@ function separatingReceivedArraysVD (nw, k, m, pmf, pw, date, party, typeOfWood)
 			usableWood : tempDoc.usableWood,
 			priceOfNagg : tempDoc.priceOfNagg,
 			date : tempDoc.date,
-			party : tempDoc.party,
-			typeOfWood : tempDoc.typeOfWood
+			party : _.kebabCase(tempDoc.party),
+			typeOfWood : _.kebabCase(tempDoc.typeOfWood)
 		});
 		naggDetail.save();
 		hisaabInstance.naggs.push(naggDetail);
@@ -347,8 +359,8 @@ function separatingReceivedArraysVD (nw, k, m, pmf, pw, date, party, typeOfWood)
 				priceWood : tempDoc.priceWood,
 				usableWood : tempDoc.usableWood,
 				priceOfNagg : tempDoc.priceOfNagg,
-				date : tempDoc.date,
-				party : tempDoc.party,
+				date : _.kebabCase(tempDoc.date),
+				party : _.kebabCase(tempDoc.party),
 				typeOfWood : tempDoc.typeOfWood
 			});
 			naggDetail.save();
