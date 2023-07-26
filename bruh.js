@@ -1,0 +1,15 @@
+var aaratPercent = Number(req.body.Aarat/100);
+var hc = Number(req.body.hc/100);
+var faali = Number(req.body.faali/100);
+var priceOfFaali = Number(req.body.priceOfFaali);
+var labour= Number(req.body.labour/100);
+var rullaPercent= Number(req.body.rullaPercent/100);
+var rullaPrice = Number(req.body.rullaPrice);
+var divisionFactor = Number(req.body.divisionFactor);
+var cd = Number(req.body.cd/100);
+var ksPercent = Number(req.body.ksPercent/100);
+var ksPrice = Number(req.body.ksPrice);
+var dPercent = Number(req.body.dPercent/100);
+var dPrice = Number(req.body.dPrice);
+var npWood = Number(req.body.npWood);
+var npPrice = Number(req.body.npPrice);

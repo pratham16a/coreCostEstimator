@@ -1,0 +1,9 @@
+Aarat will always be considered 4 percent
+when calculating total cost inside the nagg details doc
+as aarat value changes after nagg details have been
+collected.
+So, change it around!!!!
+(collect aarat data when collecting Nagg data)
+
+ObjectId("64c0eda70ae984fbf448863f")
+ObjectId("64c0eda20ae984fbf448863c")

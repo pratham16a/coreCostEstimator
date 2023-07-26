@@ -1,0 +1,22 @@
+<%- include("header") %>
+<div class="header">
+    <h1>Core Cost Estimator</h1>
+    <h6>This application calculates the average cost of core produced</h6>
+</div>
+
+<div>
+    <form action="/" method="post">
+        <div class="form-group">
+            <label for="noOfRows_CoreProduction">Enter the number of sizes of core</label>
+            <input type="number" name="noOfRows_CoreProduction" id="noOfRows_CoreProduction" class="form-control">
+            <small id="" class="form-text text-muted">If report has 4x2 and 3x2 sizes, input 2 and so on</small>
+        </div>
+        <div class="form-group">
+            <label for="noOfRows_CoreProduction">Enter the number of vehicles</label>
+            <input type="number" name="noOfVehicles" id="noOfVehicles" class="form-control">
+            <small id="" class="form-text text-muted">Number of vehicles (nagg) in report</small>
+        </div>
+        <button type="submit" class="btn btn-lg btn-danger">Submit</button>
+    </form>
+</div>
+<%- include("footer") %>

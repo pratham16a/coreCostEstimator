@@ -1,0 +1,36 @@
+<%- include ("header") %>
+
+<div class="header">
+    <h1>RAW MATERIAL DETAILS</h1>
+    <h3>Enter the raw material (nagg) details</h3>
+</div>
+<div class="core-production-report">
+    <form action="/vd" method="post">
+        <table>
+                <tr>
+                    <td>Type of Wood</td>
+                    <td>Net Weight* <em class="in-feet-subtext">(in Quantal)</em></td>
+                    <td>Reduction (Kaat) <em class="in-feet-subtext">(in Quantal)</em></td>
+                    <td>Mix Fatti / Mill <em class="in-feet-subtext">(in Quantal)</em></td>
+                    <td>Price of Mix Fatti</td>
+                    <td>Price of Wood*</td>
+                    <td>Date of Purchase</td>
+                    <td>Party</td>
+                </tr>
+            <% for (i = 0; i < noOfVehicles; i++){ %>
+                <tr>
+                    <td><input type="text" name="typeOfWoodX" id=""></td>
+                    <td><input type="text" name="netWeightX" id="" required></td>
+                    <td><input type="text" name="kaatX" id="" placeholder="0"></td>
+                    <td><input type="text" name="millX" id="" placeholder="0"></td>
+                    <td><input type="text" name="priceOfMixFattiX" id="" placeholder="0"></td>
+                    <td><input type="text" name="priceOfWoodX" id="" required></td>
+                    <td><input type="date" name="dateX" id="" placeholder="dd-mm-yyyy" required></td>
+                    <td><input type="text" name="partyX" id=""></td>
+                </tr>
+            <% } %>
+        </table>
+        <button type="submit" class="btn btn-lg btn-danger">Submit</button>
+    </form>
+</div>
+<%- include("footer") %>

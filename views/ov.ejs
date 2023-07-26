@@ -1,0 +1,64 @@
+<%- include("header") %>
+<div class="header">
+    <h1>OTHER VARIABLES</h1>
+    <h6>Enter other misc variables</h6>
+    <small id="" class="form-text text-muted">Do not input % symbol anywhere</small>
+</div>
+
+<div>
+    <form action="/ov" method="post">
+        <div class="form-group">
+            <label for="hc">Half Cut Estimate*</label>
+            <input type="text" name="hc" id="hc" class="form-control" placeholder="" required>
+        </div>
+        <div class="form-group">
+            <label for="faali">Faali Estimate*</label>
+            <input type="text" name="faali" id="faali" class="form-control" placeholder="" required>
+            <label for="priceOfFaali">Price of Faali (per mm)</label>
+            <input type="text" name="priceOfFaali" id="priceOfFaali" placeholder="0.85" value="0.85">
+        </div>
+        <div class="form-group">
+            <label for="labour">Labour</label>
+            <input type="text" name="labour" id="labour" class="form-control" placeholder="13" value="13">
+        </div>
+        <div class="form-group">
+            <label for="rullaPercent">Rulla %</label>
+            <input type="text" name="rullaPercent" id="rullaPercent" class="form-control" placeholder="4" value="4">
+            <label for="rullaPrice">Price of Rulla</label>
+            <input type="text" name="rullaPrice" id="rullaPrice" class="form-control" placeholder="580" value="580">
+        </div>
+        <div class="form-group">
+            <label for="divisionFactor">Division Factor</label>
+            <input type="text" name="divisionFactor" id="divisionFactor" class="form-control" placeholder="1.8" value="1.8">
+            <small id="" class="form-text text-muted">It is usually 1.8, but it could be 2.5 or some other value</small>
+        </div>
+        <div class="form-group">
+            <label for="Aarat">Aarat Cut</label>
+            <input type="text" name="Aarat" id="Aarat" class="form-control" placeholder="4" value="4">
+        </div>
+        <div class="form-group">
+            <label for="cd">Cash Discount</label>
+            <input type="text" name="cd" id="cd" class="form-control" placeholder="2" value="2">
+        </div>
+        <div class="form-group">
+            <label for="ksPercent">Kenchi Scrap %</label>
+            <input type="text" name="ksPercent" id="ksPercent" class="form-control" placeholder="0" value="0">
+            <label for="ksPrice">Price of Kenchi Scrap</label>
+            <input type="text" name="ksPrice" id="ksPrice" class="form-control" placeholder="450" value="450">
+        </div>
+        <div class="form-group">
+            <label for="dPercent">Debarker %</label>
+            <input type="text" name="dPercent" id="dPercent" class="form-control" placeholder="0" value="0">
+            <label for="dPrice">Price of Debarker</label>
+            <input type="text" name="dPrice" id="dPrice" class="form-control" placeholder="250" value="250">
+        </div>
+        <div class="form-group">
+            <label for="npWood">Non Pillable Wood (in Quantal)</label>
+            <input type="text" name="npWood" id="npWood" class="form-control" placeholder="0" value="0">
+            <label for="npPrice">Price of non Pillable Wood</label>
+            <input type="text" name="npPrice" id="npPrice" class="form-control" placeholder="900" value="900">
+        </div>
+        <button type="submit" class="btn btn-lg btn-danger">Submit</button>
+    </form>
+</div>
+<%- include("footer") %>
