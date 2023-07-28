@@ -1,8 +1,14 @@
 <%- include("header") %>
-<form action="/" method="post">
-    <button type="submit">Core</button>
-</form>
-<form action="/db" method="post">
-    <button type="submit">DB</button>
-</form>
+<div class="header">
+    <h1>PEALING MACHINE MANAGEMENT SYSTEM</h1>
+    <h6>AGGARWAL WOOD WORKS, RV PLYWOOD INDUSTRY</h6>
+</div>
+<DIV class="main-body">
+    <form action="/" method="post">
+        <button type="submit" class="main-button btn btn-lg">Calculate Core Average</button>
+    </form>
+    <form action="/db" method="post">
+        <button type="submit" class="main-button btn btn-lg">Previous Core Averages</button>
+    </form>
+</DIV>
 <%- include("footer") %>

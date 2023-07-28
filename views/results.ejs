@@ -1,14 +1,36 @@
 <%- include("header") %>
 <div class="header">
-    <h1>Results</h1>
-    <h6>This application calculates the average cost of core produced</h6>
+    <h1>RESULTS</h1>
+    <h6>Results of this calculation</h6>
 </div>
 
-<div>
-    <h3>Total Cost : <%= totalCost %></h3>
-    <h3>Total Weight : <%= totalWeight %></h3>
-    <h3>Square Feet Per Quantal (includes Half Cut) : <%= sqftQ %></h3>
-    <h3>Price Per MM : <%= pricePerMM %></h3>
-    <h3>Weighted Average Cost (Cost of Nagg) : <%= weightedAvgCost %></h3>
+<div class="main-body">
+    <form action="/goHome" method="post">
+        <table>
+            <tr>
+                <td class="table-cell"><h3>Total Cost : </h3></td>
+                <td class="table-cell"><h3><%= totalCost %></h3></td>
+            </tr>
+            <tr>
+                <td class="table-cell"><h3>Total Weight : </h3></td>
+                <td class="table-cell"><h3><%= totalWeight %></h3></td>
+            </tr>
+            <tr>
+                <td class="table-cell"><h3>Square Feet Per Quantal (includes Half Cut) : </h3></td>
+                <td class="table-cell"><h3><%= sqftQ %></h3></td>
+            </tr>
+            <tr>
+                <td class="table-cell"><h3>Price Per MM : </h3></td>
+                <td class="table-cell"><h3><%= pricePerMM %></h3></td>
+            </tr>
+            <tr>
+                <td class="table-cell"><h3>Weighted Average Cost (Cost of Nagg) : </h3></td>
+                <td class="table-cell"><h3><%= weightedAvgCost %></h3></td>
+            </tr>
+        </table>
+        <div class="btn-center-div mt-4">
+            <button type="submit" class="btn btn-lg form-button">Go Home</button>
+        </div>
+    </form>
 </div>
 <%- include("footer") %>

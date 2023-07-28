@@ -2,27 +2,30 @@
 
 <div class="header">
     <h1>CORE PRODUCTION REPORT</h1>
-    <h3>Enter the core production details</h3>
+    <h6>Enter the core production details</h6>
 </div>
-<div class="core-production-report">
+<div class="core-production-report main-body">
     <form action="/cpr" method="post">
         <table>
                 <tr>
-                    <td>Length <em class="in-feet-subtext">(in feet)</em></td>
-                    <td>Breadth <em class="in-feet-subtext">(in feet)</em></td>
-                    <td>Number of Bundles</td>
-                    <td>Extra Pieces</td>
+                    <td class="table-heading">Length <em class="in-feet-subtext">(in feet)</em></td>
+                    <td class="table-heading">Breadth <em class="in-feet-subtext">(in feet)</em></td>
+                    <td class="table-heading">Number of Bundles</td>
+                    <td class="table-heading">Extra Pieces</td>
                 </tr>
             <% for (i = 0; i < noOfRows_CoreProduction; i++){ %>
                 <tr>
-                    <td><input type="text" name="lengthX" id="" required></td>
-                    <td><input type="text" name="breadthX" id="" placeholder="2"></td>
-                    <td><input type="text" name="noOfBundlesX" id="" required></td>
-                    <td><input type="text" name="extraPiecesX" id="" placeholder="0"></td>
+                    <td class="table-cell"><input autocomplete="off" class="custom-input form-control" type="text" name="lengthX" id="" required></td>
+                    <td class="table-cell"><input autocomplete="off" class="custom-input form-control" type="text" name="breadthX" id="" placeholder="2"></td>
+                    <td class="table-cell"><input autocomplete="off" class="custom-input form-control" type="text" name="noOfBundlesX" id="" required></td>
+                    <td class="table-cell"><input autocomplete="off" class="custom-input form-control" type="text" name="extraPiecesX" id="" placeholder="0"></td>
                 </tr>
             <% } %>
         </table>
-        <button type="submit" class="btn btn-lg btn-danger">Submit</button>
+        <DIV class="btn-center-div mt-4">
+            <button type="submit" class="btn btn-lg form-button">SUBMIT</button>
+        </DIV>
+        
     </form>
 </div>
 <%- include("footer") %>

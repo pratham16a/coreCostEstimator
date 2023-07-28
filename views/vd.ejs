@@ -2,35 +2,37 @@
 
 <div class="header">
     <h1>RAW MATERIAL DETAILS</h1>
-    <h3>Enter the raw material (nagg) details</h3>
+    <h6>Enter the raw material (nagg) details</h6>
 </div>
-<div class="core-production-report">
+<div class="core-production-report main-body">
     <form action="/vd" method="post">
         <table>
                 <tr>
-                    <td>Type of Wood</td>
-                    <td>Net Weight* <em class="in-feet-subtext">(in Quantal)</em></td>
-                    <td>Reduction (Kaat) <em class="in-feet-subtext">(in Quantal)</em></td>
-                    <td>Mix Fatti / Mill <em class="in-feet-subtext">(in Quantal)</em></td>
-                    <td>Price of Mix Fatti</td>
-                    <td>Price of Wood*</td>
-                    <td>Date of Purchase</td>
-                    <td>Party</td>
+                    <td class="table-heading">Type of Wood</td>
+                    <td class="table-heading">Net Weight* <em class="in-feet-subtext">(in Quantal)</em></td>
+                    <td class="table-heading">Reduction (Kaat) <em class="in-feet-subtext">(in Quantal)</em></td>
+                    <td class="table-heading">Mix Fatti / Mill <em class="in-feet-subtext">(in Quantal)</em></td>
+                    <td class="table-heading">Price of Mix Fatti</td>
+                    <td class="table-heading">Price of Wood*</td>
+                    <td class="table-heading">Date of Purchase</td>
+                    <td class="table-heading">Party</td>
                 </tr>
             <% for (i = 0; i < noOfVehicles; i++){ %>
                 <tr>
-                    <td><input type="text" name="typeOfWoodX" id=""></td>
-                    <td><input type="text" name="netWeightX" id="" required></td>
-                    <td><input type="text" name="kaatX" id="" placeholder="0"></td>
-                    <td><input type="text" name="millX" id="" placeholder="0"></td>
-                    <td><input type="text" name="priceOfMixFattiX" id="" placeholder="0"></td>
-                    <td><input type="text" name="priceOfWoodX" id="" required></td>
-                    <td><input type="date" name="dateX" id="" placeholder="dd-mm-yyyy" required></td>
-                    <td><input type="text" name="partyX" id=""></td>
+                    <td class="table-cell"><input autocomplete="off" class="custom-input form-control" type="text" name="typeOfWoodX" id=""></td>
+                    <td class="table-cell"><input autocomplete="off" class="custom-input form-control" type="text" name="netWeightX" id="" required></td>
+                    <td class="table-cell"><input autocomplete="off" class="custom-input form-control" type="text" name="kaatX" id="" placeholder="0"></td>
+                    <td class="table-cell"><input autocomplete="off" class="custom-input form-control" type="text" name="millX" id="" placeholder="0"></td>
+                    <td class="table-cell"><input autocomplete="off" class="custom-input form-control" type="text" name="priceOfMixFattiX" id="" placeholder="0"></td>
+                    <td class="table-cell"><input autocomplete="off" class="custom-input form-control" type="text" name="priceOfWoodX" id="" required></td>
+                    <td class="table-cell"><input autocomplete="off" class="custom-input form-control date-picker" type="date" name="dateX" id="" placeholder="dd-mm-yyyy" required></td>
+                    <td class="table-cell"><input autocomplete="off" class="custom-input form-control" type="text" name="partyX" id=""></td>
                 </tr>
             <% } %>
         </table>
-        <button type="submit" class="btn btn-lg btn-danger">Submit</button>
+        <div class="btn-center-div mt-4">
+            <button type="submit" class="btn btn-lg form-button">SUBMIT</button>
+        </div>
     </form>
 </div>
 <%- include("footer") %>

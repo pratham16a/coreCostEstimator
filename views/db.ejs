@@ -1,0 +1,49 @@
+<%- include ("header") %>
+<div class="header">
+    <h1>ALL CALCULATIONS</h1>
+</div>
+<div class="main-body">
+    <form action="">
+    <table>
+        <tr>
+            <td class="table-heading ps-2 pe-2">S.No.</td>
+            <td class="table-heading ps-2 pe-2">Avg Price of Wood</td>
+            <td class="table-heading ps-2 pe-2">Sq Ft per Quantal</td>
+            <td class="table-heading ps-2 pe-2">Price per mm</td>
+            <td class="table-heading ps-2 pe-2">Half Cut Estimate</td>
+            <td class="table-heading ps-2 pe-2">Faali Estimate</td>
+            <td class="table-heading ps-2 pe-2"></td>
+            <td class="table-heading ps-2 pe-2"></td>
+        </tr>
+        <% for (i = 0; i < docToSend.length; i++){ %>
+            <tr>
+                <td class="table-cell centering-db"><h3><%= i + 1 %></h3></td>
+                <td class="table-cell centering-db"><h3><%= docToSend[i].weightedAvgCost %></h3></td>
+                <td class="table-cell centering-db"><h3><%= docToSend[i].sqftQ %></h3></td>
+                <td class="table-cell centering-db"><h3><%= docToSend[i].pricePerMM %></h3></td>
+                <td class="table-cell centering-db"><h3><%= docToSend[i].hc * 100 %>%</h3></td>
+                <td class="table-cell centering-db"><h3><%= docToSend[i].faali * 100%>%</h3></td>
+                <td class="table-cell centering-db"><h3><form action="/deleteX" method="post"><input type="hidden" value="<%= docToSend[i]._id %>" name="deleteEntryId"><button type="submit" class="icon-btn btn form-button"><i class="fa-solid fa-trash icon-custom"></i></button></form></td>
+                <td class="table-cell centering-db"><h3><form action="/expandX" method="post"><input type="hidden" value="<%= docToSend[i]._id %>" name="expandEntryId"><button type="submit" class="icon-btn btn form-button"><i class="fa-solid fa-expand icon-custom"></i></button></form></td>
+            </tr>
+        <% } %>
+    </table>
+    <div class="popup btn-center-div" onclick="myFunction()"><div class="btn-center-div"><button disabled="disabled" class="btn form-button">Delete All Records</button></div>
+        <span class="popuptext" id="myPopup">
+            <h3>Are you sure?</h3>
+            <div class="popup-options">
+                <form action="/deleteAll" method="post"><button type="submit" class="btn form-button me-4">Yes</button></form>
+                <form action="/db" method="post"><button type="submit" class="btn form-button">No</button></form>
+            </div>
+        </span>
+    </div>
+    </form>
+</div>
+<script>
+    // When the user clicks on <div>, open the popup
+    function myFunction() {
+      var popup = document.getElementById("myPopup");
+      popup.classList.toggle("show");
+    }
+    </script>
+<%- include ("footer") %>

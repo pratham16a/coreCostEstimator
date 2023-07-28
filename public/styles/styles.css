@@ -1,3 +1,202 @@
-.in-feet-subtext{
-    font-size: x-small;
+/* #FFE6C7 */
+/* #FFA559 */
+/* #FF6000 */
+/* #454545 */
+
+body{
+  background-color: #454545;
+  font-family: 'geologica', sans-serif;
 }
+
+h6{
+  color: #ffe6c7;
+}
+
+h1{
+  color: #ff6000;
+  font-family: 'geologica', sans-serif;
+}
+
+h3{
+  color: #ffa559;
+  font-size: large;
+}
+
+label{
+  color: #ffa559;
+}
+
+.custom-small{
+  font-size: 0.8rem;
+  color: #ffe6c7;
+}
+
+.custom-form-group{
+  margin-bottom: 10px;
+}
+
+.custom-input{
+  background-color: transparent;
+  border: 2px solid #ffa559;
+  margin-top: 5px;
+  color: #ffa559;
+  box-shadow: none;
+}
+
+.custom-input:focus{
+  outline: none;
+  background-color: transparent;
+  border: 2px solid #ff6000;
+  color: #ff6000;
+  box-shadow: none;
+}
+
+.custom-input::placeholder{
+  color: #ffe6c7;
+}
+.header{
+  text-align: center;
+  padding-top: 2%;
+  
+}
+
+.main-body{
+  padding-top: 5%;
+  display: flex;
+  justify-content: center;
+}
+
+.form-button{
+  background-color: none;
+  color: #ffa559;
+  border: 2px solid #ffa559;
+}
+
+.form-button:disabled{
+  background-color: none;
+  color: #ffa559;
+  border: 2px solid #ffa559;
+}
+
+.form-button:hover{
+  background-color: #ffa559;
+  color: #454545;
+}
+
+.main-button{
+  padding: 2%;
+  margin: 3rem;
+  background-color: none;
+  color: #ffa559;
+  border: 2px solid #ffa559;
+}
+
+.main-button:hover{
+  background-color: #ffa559;
+  color: #454545;
+}
+
+.form-container{
+  margin-top: 3rem;
+  display: flex;
+  justify-content: center;
+}
+
+.btn-center-div{
+  display: flex;
+  justify-content: center;
+}
+
+.table-heading{
+  color: #ffe6c7;
+  text-align: center;
+  font-size: large;
+}
+
+.table-cell{
+  padding: 5px;
+}
+
+.in-feet-subtext{
+  font-style: normal;
+  font-size: small;
+}
+
+.date-picker::-webkit-calendar-picker-indicator {
+  filter: invert(100%);
+}
+
+.centering-db{
+  text-align: center;
+}
+
+.icon-btn{
+  background-color: #454545;
+  box-shadow: none;
+  outline : none;
+  color: #ffa559;
+  font-size: 1.5rem;
+  margin-right: 1rem;
+}
+
+.fixing-top-margin{
+  padding-top: 10px;
+}
+
+/* Popup container */
+.popup {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+  }
+  
+  /* The actual popup (appears on top) */
+  .popup .popuptext {
+    visibility: hidden;
+    width: 160px;
+    background-color: #555;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 8px 0;
+    position: absolute;
+    z-index: 1;
+    bottom: 125%;
+    left: 50%;
+    margin-left: -80px;
+  }
+  
+  /* Popup arrow */
+  .popup .popuptext::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #555 transparent transparent transparent;
+  }
+  
+  /* Toggle this class when clicking on the popup container (hide and show the popup) */
+  .popup .show {
+    visibility: visible;
+    -webkit-animation: fadeIn 1s;
+    animation: fadeIn 1s
+  }
+
+  .popup-options{
+    display: flex;
+    justify-content: center;
+  }
+  
+  /* Add animation (fade in the popup) */
+  @-webkit-keyframes fadeIn {
+    from {opacity: 0;}
+    to {opacity: 1;}
+  }
+  
+  @keyframes fadeIn {
+    from {opacity: 0;}
+    to {opacity:1 ;}
+  }

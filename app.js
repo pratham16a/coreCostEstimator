@@ -9,6 +9,7 @@ const _ = require('lodash');
 app.use(bodyParser.urlencoded({extended : true}));
 app.use(express.static("public"));
 app.set('view engine', 'ejs');
+app.locals._ = _;
 mongoose.connect("mongodb://127.0.0.1:27017/AggarwalWoodWorks");
 connectionPromise = mongoose.connection.asPromise();
 connectionPromise.then(()=>{
@@ -141,8 +142,7 @@ function NaggDetail(netWeight, kaat , mixFatti, priceMixFatti, priceWood, date, 
 	this.typeOfWood = String(typeOfWood);
 	this.typeOfWood = _.kebabCase(this.typeOfWood);
 }
-var productionDetailArray = []; //array of production details
-var naggDetailArray = []; //array of nagg details
+
 //---------------------------------------------------GETS
 app.get("/", function(req, res){
 	res.render("main");
@@ -154,6 +154,8 @@ app.get("/index", function(req, res){
 
 app.get("/cpr", function(req, res){
 	globalThis.hisaabInstance = new HisaabCollection;
+	globalThis.productionDetailArray = []; //array of production details
+	globalThis.naggDetailArray = []; //array of nagg details
 	console.log("\n\nhisaab instance has been created\n\n");
 	res.render("cpr", {
 		noOfRows_CoreProduction : noOfRows_CoreProduction
@@ -181,7 +183,9 @@ app.get("/results", function(req, res){
 		productOfCostAndWeight = (item.priceWood * item.netWeight) + productOfCostAndWeight;
 	});
 	var weightedAvgCost = productOfCostAndWeight / totalWeight;
+	weightedAvgCost = Math.round(weightedAvgCost*100)/100;
 	totalWeight = totalWeight - npWood;
+	totalWeight = Math.round(totalWeight*100)/100;
 
 	productionDetailArray.forEach((item)=>{
 		totalSquareFeet = item.squareFeet + totalSquareFeet;
@@ -200,7 +204,9 @@ app.get("/results", function(req, res){
 	var finalCost = totalCost - costReductionFromFaali - costReductionFromKenchi - costReductionFromDebarker - costReductionFromRulla - costReductionFromCD - costReductionFromNPW + costOfLabour;
 	
 	var squareFeetPerQuantal = totalSquareFeetWithHalfCut / totalWeight;
+	squareFeetPerQuantal = Math.round(squareFeetPerQuantal*100)/100;
 	var pricePerMM = finalCost / (totalSquareFeetWithHalfCut * divisionFactor);
+	pricePerMM = Math.round(pricePerMM * 100)/100;
 
 	hisaabInstance.totalCost = totalCost;
 	hisaabInstance.totalWeight = totalWeight;
@@ -240,9 +246,54 @@ app.get("/results", function(req, res){
 		weightedAvgCost : weightedAvgCost
 	});
 });
+
+app.get("/db", function(req, res){
+	var docToSend = [];
+	HisaabCollection.find({}).then(foundItems =>{
+		console.log(foundItems);
+		res.render("db", {
+			docToSend : foundItems
+		});
+	});
+});
+
+app.get("/expand", function(req, res){
+	HisaabCollection.findOne({_id : expansionObjectId}).then(foundItems => {
+		console.log(foundItems.naggs);
+		console.log(foundItems.productionReport);
+		res.render("expand", {
+			naggsArray : foundItems.naggs,
+			productionReportArray : foundItems.productionReport,
+			aarat:foundItems.aarat ,
+			cd:foundItems.cd ,
+			dPercent:foundItems.dPercent ,
+			dPrice:foundItems.dPrice ,
+			dateOfRecording:foundItems.dateOfRecording ,
+			divisionFactor:foundItems.divisionFactor ,
+			faali:foundItems.faali ,
+			hc:foundItems.hc ,
+			ksPercent:foundItems.ksPercent ,
+			ksPrice:foundItems.ksPrice ,
+			labour:foundItems.labour ,
+			npPrice:foundItems.npPrice ,
+			npWood:foundItems.npWood ,
+			priceOfFaali:foundItems.priceOfFaali ,
+			pricePerMM:foundItems.pricePerMM ,
+			rullaPercent:foundItems.rullaPercent ,
+			sqftQ:foundItems.sqftQ ,
+			totalCost:foundItems.totalCost ,
+			totalWeight:foundItems.totalWeight ,
+			weightedAvgCost:foundItems.weightedAvgCost ,
+			rullaPrice:foundItems.rullaPrice ,
+		});
+	})
+});
 //-------------------------------------------------POSTS
 app.post("/", function(req, res){
 	res.redirect("/index");
+});
+app.post("/db", function(req, res){
+	res.redirect("/db");
 });
 app.post("/index", function(req, res){
 	noOfRows_CoreProduction = req.body.noOfRows_CoreProduction;
@@ -283,6 +334,34 @@ app.post("/ov", function(req, res){
 
 	res.redirect("/results");
 });
+
+app.post("/deleteX", function(req, res){
+	const objectId = req.body.deleteEntryId;
+	deleteHisaabEntry(objectId);
+	res.redirect("/db");
+});
+
+async function deleteHisaabEntry(objectId){
+	await HisaabCollection.deleteOne({_id : objectId});
+}
+
+app.post("/expandX", function(req, res){
+	globalThis.expansionObjectId = req.body.expandEntryId;
+	res.redirect("/expand");
+});
+
+app.post("/goHome", function(req, res){
+	res.redirect("/")
+});
+
+app.post("/deleteAll", function(req, res){
+	deleteAllHisaabs();
+	res.redirect("/db")
+});
+
+async function deleteAllHisaabs(){
+	await HisaabCollection.deleteMany({});
+}
 
 //--------------------------------------------------------Listen
 app.listen(port, function(){

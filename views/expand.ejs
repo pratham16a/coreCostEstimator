@@ -1,0 +1,92 @@
+<%- include ("header") %>
+<div class="header">
+    <h1>NAGG DETAILS</h1>
+</div>
+<div class="main-body fixing-top-margin">
+<table class="">
+    <tr>
+        <td class="table-heading ps-2 pe-2">Type of Wood</td>
+        <td class="table-heading ps-2 pe-2">Net Weight</td>
+        <td class="table-heading ps-2 pe-2">Kaat</td>
+        <td class="table-heading ps-2 pe-2">Mix Fatti</td>
+        <td class="table-heading ps-2 pe-2">Price Of Mix Fatti</td>
+        <td class="table-heading ps-2 pe-2">Price Of Wood</td>
+        <td class="table-heading ps-2 pe-2">Price of Nagg</td>
+        <td class="table-heading ps-2 pe-2">Date</td>
+        <td class="table-heading ps-2 pe-2">Party</td>
+    </tr>
+        <% for (i = 0; i < naggsArray.length; i++){ %>
+        <tr>
+            <td class="table-cell centering-db"><h3><%= _.lowerCase(naggsArray[i].typeOfWood) %></h3></td>
+            <td class="table-cell centering-db"><h3><%= naggsArray[i].netWeight %></h3></td>
+            <td class="table-cell centering-db"><h3><%= naggsArray[i].kaat %></h3></td>
+            <td class="table-cell centering-db"><h3><%= naggsArray[i].mixFatti %></h3></td>
+            <td class="table-cell centering-db"><h3><%= naggsArray[i].priceMixFatti %></h3></td>
+            <td class="table-cell centering-db"><h3><%= naggsArray[i].priceWood %></h3></td>
+            <td class="table-cell centering-db"><h3><%= naggsArray[i].priceOfNagg %></h3></td>
+            <td class="table-cell centering-db"><h3><%= naggsArray[i].date.toLocaleDateString("en-IN", {day : "numeric", month : "numeric", year : "numeric"}) %></h3></td>
+            <td class="table-cell centering-db"><h3><%= naggsArray[i].party %></h3></td>
+        </tr>
+        <% } %>
+</table>
+</div>
+
+<div class="header">
+    <h1>PRODUCTION REPORT</h1>
+</div>
+<div class="main-body fixing-top-margin">
+<table>
+    <tr>
+        <td class="table-heading ps-2 pe-2">Length</td>
+        <td class="table-heading ps-2 pe-2">Breadth</td>
+        <td class="table-heading ps-2 pe-2">Bundles</td>
+        <td class="table-heading ps-2 pe-2">Extra Pieces</td>
+        <td class="table-heading ps-2 pe-2">Square Feet</td>
+    </tr>
+    <% for (i = 0; i < productionReportArray.length ; i++){ %>
+        <tr>
+            <td class="table-cell centering-db"><h3><%= productionReportArray[i].length %></h3></td>
+            <td class="table-cell centering-db"><h3><%= productionReportArray[i].breadth %></h3></td>
+            <td class="table-cell centering-db"><h3><%= productionReportArray[i].noOfBundles %></h3></td>
+            <td class="table-cell centering-db"><h3><%= productionReportArray[i].extraPieces %></h3></td>
+            <td class="table-cell centering-db"><h3><%= productionReportArray[i].squareFeet %></h3></td>
+        </tr>
+    <% } %>
+</table>
+</div>
+<div class="header">
+    <h1>OTHER VARIABLES</h1>
+</div>
+<div class="main-body fixing-top-margin">
+<form action="/goHome" method="post">
+<table>
+    <tr><td class = "table-cell"><h3>Square Feet Per Quantal</h3></td><td class = "table-cell"><h3><%= sqftQ %></h3></td></tr>
+    <tr><td class = "table-cell"><h3>Price Per MM</h3></td><td class = "table-cell"><h3><%= pricePerMM %></h3></td></tr>
+    <tr><td class = "table-cell"><h3>Half Cut Estimate</h3></td><td class = "table-cell"><h3><%= hc*100 %>%</h3></td></tr>
+    <tr><td class = "table-cell"><h3>Faali Estimate</h3></td><td class = "table-cell"><h3><%= faali*100 %>%</h3></td></tr>
+    <tr><td class = "table-cell"><h3>Price of Faali</h3></td><td class = "table-cell"><h3><%= priceOfFaali %></h3></td></tr>
+    <tr><td class = "table-cell"><h3>Total Cost</h3></td><td class = "table-cell"><h3><%= totalCost %></h3></td></tr>
+    <tr><td class = "table-cell"><h3>Total Weight</h3></td><td class = "table-cell"><h3><%= totalWeight %></h3></td></tr>
+    <tr><td class = "table-cell"><h3>Weighted Average Cost</h3></td><td class = "table-cell"><h3><%= weightedAvgCost %></h3></td></tr>
+    <tr><td class = "table-cell"><h3>labour</h3></td><td class = "table-cell"><h3><%= labour %></h3></td></tr>
+    <tr><td class = "table-cell"><h3>Rulla Percent</h3></td><td class = "table-cell"><h3><%= rullaPercent*100 %>%</h3></td></tr>
+    <tr><td class = "table-cell"><h3>Rulla Price</h3></td><td class = "table-cell"><h3><%= rullaPrice %></h3></td></tr>
+    <tr><td class = "table-cell"><h3>Non Pillable Wood</h3></td><td class = "table-cell"><h3><%= npWood*100 %>%</h3></td></tr>
+    <tr><td class = "table-cell"><h3>Non Pillable Wood Price</h3></td><td class = "table-cell"><h3><%= npPrice %></h3></td></tr>
+    <tr><td class = "table-cell"><h3>Kenchi Scrap Percent</h3></td><td class = "table-cell"><h3><%= ksPercent*100 %>%</h3></td></tr>
+    <tr><td class = "table-cell"><h3>Kenchi Scrap Price</h3></td><td class = "table-cell"><h3><%= ksPrice %></h3></td></tr>
+    <tr><td class = "table-cell"><h3>Debarker Percent</h3></td><td class = "table-cell"><h3><%= dPercent*100 %>%</h3></td></tr>
+    <tr><td class = "table-cell"><h3>Debarker Price</h3></td><td class = "table-cell"><h3><%= dPrice %></h3></td></tr>
+    <tr><td class = "table-cell"><h3>Aarat</h3></td><td class = "table-cell"><h3><%= aarat*100 %>%</h3></td></tr>
+    <tr><td class = "table-cell"><h3>Cash Discount</h3></td><td class = "table-cell"><h3><%= cd*100 %>%</h3></td></tr>
+    <tr><td class = "table-cell"><h3>Date of Recording</h3></td><td class = "table-cell"><h3><%= dateOfRecording.toLocaleDateString("en-IN", {day : "numeric", month : "numeric", year : "numeric"}) %></h3></td></tr>
+    <tr><td class = "table-cell"><h3>Division Factor</h3></td><td class = "table-cell"><h3><%= divisionFactor %></h3></td></tr>
+</table>
+<div class="btn-center-div mb-4 mt-2">
+    <button type="submit" class="btn btn-lg form-button"><i class="fa-solid fa-house icon-custom"></i></button>
+</div>
+   
+</form>
+</div>
+
+<%- include ("footer") %>

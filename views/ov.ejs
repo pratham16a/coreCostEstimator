@@ -2,63 +2,96 @@
 <div class="header">
     <h1>OTHER VARIABLES</h1>
     <h6>Enter other misc variables</h6>
-    <small id="" class="form-text text-muted">Do not input % symbol anywhere</small>
+    <h6>Do not input % symbol anywhere</h6>
 </div>
 
-<div>
+<div class="form-container">
     <form action="/ov" method="post">
-        <div class="form-group">
+        <div class="form-group custom-form-group">
             <label for="hc">Half Cut Estimate*</label>
-            <input type="text" name="hc" id="hc" class="form-control" placeholder="" required>
+            <input autocomplete="off" type="text" name="hc" id="hc" class="form-control custom-input" placeholder="" required autocomplete="off">
         </div>
-        <div class="form-group">
-            <label for="faali">Faali Estimate*</label>
-            <input type="text" name="faali" id="faali" class="form-control" placeholder="" required>
-            <label for="priceOfFaali">Price of Faali (per mm)</label>
-            <input type="text" name="priceOfFaali" id="priceOfFaali" placeholder="0.85" value="0.85">
+        <div class="form-group custom-form-group">
+            <table>
+                <tr>
+                    <td><label for="faali">Faali Estimate*</label></td>
+                    <td><label for="priceOfFaali">Price of Faali (per mm)</label></td>
+                </tr>
+                <tr>
+                    <td><input autocomplete="off" type="text" name="faali" id="faali" class="form-control custom-input" placeholder="" required></td>
+                    <td><input autocomplete="off" type="text" name="priceOfFaali" id="priceOfFaali" class="form-control custom-input" placeholder="0.85" value="0.85"></td>
+                </tr>
+            </table>
         </div>
-        <div class="form-group">
+        <div class="form-group custom-form-group">
             <label for="labour">Labour</label>
-            <input type="text" name="labour" id="labour" class="form-control" placeholder="13" value="13">
+            <input autocomplete="off" type="text" name="labour" id="labour" class="form-control custom-input" placeholder="13" value="13">
         </div>
-        <div class="form-group">
-            <label for="rullaPercent">Rulla %</label>
-            <input type="text" name="rullaPercent" id="rullaPercent" class="form-control" placeholder="4" value="4">
-            <label for="rullaPrice">Price of Rulla</label>
-            <input type="text" name="rullaPrice" id="rullaPrice" class="form-control" placeholder="580" value="580">
+        <div class="form-group custom-form-group">
+            <table>
+                <tr>
+                    <td><label for="rullaPercent">Rulla %</label></td>
+                    <td><label for="rullaPrice">Price of Rulla</label></td>
+                </tr>
+                <tr>
+                    <td><input autocomplete="off" type="text" name="rullaPercent" id="rullaPercent" class="form-control custom-input" placeholder="4" value="4"></td>
+                    <td><input autocomplete="off" type="text" name="rullaPrice" id="rullaPrice" class="form-control custom-input" placeholder="580" value="580"></td>
+                </tr>
+            </table>
         </div>
-        <div class="form-group">
+        <div class="form-group custom-form-group">
             <label for="divisionFactor">Division Factor</label>
-            <input type="text" name="divisionFactor" id="divisionFactor" class="form-control" placeholder="1.8" value="1.8">
-            <small id="" class="form-text text-muted">It is usually 1.8, but it could be 2.5 or some other value</small>
+            <input autocomplete="off" type="text" name="divisionFactor" id="divisionFactor" class="form-control custom-input" placeholder="1.8" value="1.8">
+            <small id="" class="form-text custom-small">It is usually 1.8, but it could be 2.5 or some other value</small>
         </div>
-        <div class="form-group">
+        <div class="form-group custom-form-group">
             <label for="Aarat">Aarat Cut</label>
-            <input type="text" name="Aarat" id="Aarat" class="form-control" placeholder="4" value="4">
+            <input autocomplete="off" type="text" name="Aarat" id="Aarat" class="form-control custom-input" placeholder="4" value="4">
         </div>
-        <div class="form-group">
+        <div class="form-group custom-form-group">
             <label for="cd">Cash Discount</label>
-            <input type="text" name="cd" id="cd" class="form-control" placeholder="2" value="2">
+            <input autocomplete="off" type="text" name="cd" id="cd" class="form-control custom-input" placeholder="2" value="2">
         </div>
-        <div class="form-group">
-            <label for="ksPercent">Kenchi Scrap %</label>
-            <input type="text" name="ksPercent" id="ksPercent" class="form-control" placeholder="0" value="0">
-            <label for="ksPrice">Price of Kenchi Scrap</label>
-            <input type="text" name="ksPrice" id="ksPrice" class="form-control" placeholder="450" value="450">
+        <div class="form-group custom-form-group">
+            <table>
+                <tr>
+                    <td><label for="ksPercent">Kenchi Scrap %</label></td>
+                    <td><label for="ksPrice">Price of Kenchi Scrap</label></td>
+                </tr>
+                <tr>
+                    <td><input autocomplete="off" type="text" name="ksPercent" id="ksPercent" class="form-control custom-input" placeholder="0" value="0"></td>
+                    <td><input autocomplete="off" type="text" name="ksPrice" id="ksPrice" class="form-control custom-input" placeholder="450" value="450"></td>
+                </tr>
+            </table>
         </div>
-        <div class="form-group">
-            <label for="dPercent">Debarker %</label>
-            <input type="text" name="dPercent" id="dPercent" class="form-control" placeholder="0" value="0">
-            <label for="dPrice">Price of Debarker</label>
-            <input type="text" name="dPrice" id="dPrice" class="form-control" placeholder="250" value="250">
+        <div class="form-group custom-form-group">
+            <table>
+                <tr>
+                    <td><label for="dPercent">Debarker %</label></td>
+                    <td><label for="dPrice">Price of Debarker</label></td>
+                </tr>
+                <tr>
+                    <td><input autocomplete="off" type="text" name="dPercent" id="dPercent" class="form-control custom-input" placeholder="0" value="0"></td>
+                    <td><input autocomplete="off" type="text" name="dPrice" id="dPrice" class="form-control custom-input" placeholder="250" value="250"></td>
+                </tr>
+            </table>
         </div>
-        <div class="form-group">
-            <label for="npWood">Non Pillable Wood (in Quantal)</label>
-            <input type="text" name="npWood" id="npWood" class="form-control" placeholder="0" value="0">
-            <label for="npPrice">Price of non Pillable Wood</label>
-            <input type="text" name="npPrice" id="npPrice" class="form-control" placeholder="900" value="900">
+        <div class="form-group custom-form-group">
+            <table>
+                <tr>
+                    <td><label for="npWood">Non Pillable Wood (in Quantal)</label></td>
+                    <td><label for="npPrice">Price of non Pillable Wood</label></td>
+                </tr>
+                <tr>
+                    <td><input autocomplete="off" type="text" name="npWood" id="npWood" class="form-control custom-input" placeholder="0" value="0"></td>
+                    <td><input autocomplete="off" type="text" name="npPrice" id="npPrice" class="form-control custom-input" placeholder="900" value="900"></td>
+                </tr>
+            </table>
         </div>
-        <button type="submit" class="btn btn-lg btn-danger">Submit</button>
+        <div class="btn-center-div">
+            <button type="submit" class="btn btn-lg form-button mt-4 mb-4">Submit</button>
+        </div>
+        
     </form>
 </div>
 <%- include("footer") %>
