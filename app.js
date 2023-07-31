@@ -14,6 +14,9 @@ mongoose.connect("mongodb://127.0.0.1:27017/AggarwalWoodWorks");
 connectionPromise = mongoose.connection.asPromise();
 connectionPromise.then(()=>{
 	console.log("successfully connected to AggarwalWoodWorks DB");
+	app.listen(port, function(){
+	console.log("listening on port : " + port);
+});
 });
 
 //---------------------------------------------------MongoDB Schemas and models
@@ -366,10 +369,7 @@ async function deleteAllHisaabs(){
 	await HisaabCollection.deleteMany({});
 }
 
-//--------------------------------------------------------Listen
-app.listen(port, function(){
-	console.log("listening on port : " + port);
-});
+
 
 //----------------------------------------------------------custom functions
 function separatingReceivedArraysPR (l, b, bu, pi) {
