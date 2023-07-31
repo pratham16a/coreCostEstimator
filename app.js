@@ -230,7 +230,7 @@ app.get("/results", function(req, res){
 	hisaabInstance.aarat = aaratPercent;
 	hisaabInstance.dateOfRecording = new Date();
 	hisaabInstance.dateOfRecording = hisaabInstance.dateOfRecording.toLocaleDateString("en-US", {day : "numeric", month : "numeric", year : "numeric"});
-	hisaabInstance.save();
+	;
 
 	console.log("\n\nAdded to hisaab collection\n\n");
 	
@@ -351,6 +351,9 @@ app.post("/expandX", function(req, res){
 });
 
 app.post("/goHome", function(req, res){
+	if (String(req.body.saveToDB) == "on"){
+		hisaabInstance.save();
+	}
 	res.redirect("/")
 });
 
@@ -404,7 +407,7 @@ function separatingReceivedArraysPR (l, b, bu, pi) {
 
 	
 	}
-	hisaabInstance.save();
+	;
 }
 
 function separatingReceivedArraysVD (nw, k, m, pmf, pw, date, party, typeOfWood) {
@@ -449,7 +452,7 @@ function separatingReceivedArraysVD (nw, k, m, pmf, pw, date, party, typeOfWood)
 		}
 	}
 
-	hisaabInstance.save();
+	;
 	
 }
 

@@ -8,25 +8,27 @@
     <form action="/vd" method="post">
         <table>
                 <tr>
+                    <td class="table-heading">Date of Purchase</td>
+                    <td class="table-heading">Party</td>
                     <td class="table-heading">Type of Wood</td>
                     <td class="table-heading">Net Weight* <em class="in-feet-subtext">(in Quantal)</em></td>
                     <td class="table-heading">Reduction (Kaat) <em class="in-feet-subtext">(in Quantal)</em></td>
                     <td class="table-heading">Mix Fatti / Mill <em class="in-feet-subtext">(in Quantal)</em></td>
                     <td class="table-heading">Price of Mix Fatti</td>
                     <td class="table-heading">Price of Wood*</td>
-                    <td class="table-heading">Date of Purchase</td>
-                    <td class="table-heading">Party</td>
+                    
                 </tr>
             <% for (i = 0; i < noOfVehicles; i++){ %>
                 <tr>
+                    <td class="table-cell"><input autocomplete="off" class="custom-input form-control date-picker" type="date" name="dateX" id="" placeholder="dd-mm-yyyy" required></td>
+                    <td class="table-cell"><input autocomplete="off" class="custom-input form-control" type="text" name="partyX" id=""></td>
                     <td class="table-cell"><input autocomplete="off" class="custom-input form-control" type="text" name="typeOfWoodX" id=""></td>
                     <td class="table-cell"><input autocomplete="off" class="custom-input form-control" type="text" name="netWeightX" id="" required></td>
                     <td class="table-cell"><input autocomplete="off" class="custom-input form-control" type="text" name="kaatX" id="" placeholder="0"></td>
                     <td class="table-cell"><input autocomplete="off" class="custom-input form-control" type="text" name="millX" id="" placeholder="0"></td>
                     <td class="table-cell"><input autocomplete="off" class="custom-input form-control" type="text" name="priceOfMixFattiX" id="" placeholder="0"></td>
                     <td class="table-cell"><input autocomplete="off" class="custom-input form-control" type="text" name="priceOfWoodX" id="" required></td>
-                    <td class="table-cell"><input autocomplete="off" class="custom-input form-control date-picker" type="date" name="dateX" id="" placeholder="dd-mm-yyyy" required></td>
-                    <td class="table-cell"><input autocomplete="off" class="custom-input form-control" type="text" name="partyX" id=""></td>
+                    
                 </tr>
             <% } %>
         </table>

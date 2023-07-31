@@ -143,6 +143,22 @@ label{
   padding-top: 10px;
 }
 
+.save-to-db{
+  margin-top: 100px;
+  text-align: center;
+  /* vertical-align: middle; */
+}
+
+input[type="checkbox"]{
+  color: #ffa559;
+}
+
+#savetodb-h3{
+  padding-top: 7px;
+  padding-left: 5px;
+  vertical-align: top;
+}
+
 /* Popup container */
 .popup {
     position: relative;
