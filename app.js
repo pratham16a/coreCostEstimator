@@ -10,10 +10,10 @@ app.use(bodyParser.urlencoded({extended : true}));
 app.use(express.static("public"));
 app.set('view engine', 'ejs');
 app.locals._ = _;
-mongoose.connect("mongodb://127.0.0.1:27017/AggarwalWoodWorks");
+mongoose.connect(process.env.MONGO_URI);
 connectionPromise = mongoose.connection.asPromise();
 connectionPromise.then(()=>{
-	console.log("successfully connected to AggarwalWoodWorks DB");
+	console.log("successfully connected to ${conn.connection.host}");
 	app.listen(port, function(){
 	console.log("listening on port : " + port);
 });
