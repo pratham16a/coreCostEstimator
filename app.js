@@ -385,7 +385,7 @@ function separatingReceivedArraysPR (l, b, bu, pi) {
 			totalNoOfPieces : tempDoc.totalNoOfPieces,
 			squareFeet : tempDoc.squareFeet
 		});
-		productionDetail.save();
+		// productionDetail.save();
 		hisaabInstance.productionReport.push(productionDetail);
 		console.log("\n\nSaved to ProductionDetailCollection\n\n");
 		productionDetailArray.push(tempDoc);
@@ -400,7 +400,7 @@ function separatingReceivedArraysPR (l, b, bu, pi) {
 				totalNoOfPieces : tempDoc.totalNoOfPieces,
 				squareFeet : tempDoc.squareFeet
 			});
-			productionDetail.save();
+			// productionDetail.save();
 			hisaabInstance.productionReport.push(productionDetail);
 			console.log("\n\nSaved to ProductionDetailCollection\n\n");
 			productionDetailArray.push(tempDoc);
@@ -427,7 +427,7 @@ function separatingReceivedArraysVD (nw, k, m, pmf, pw, date, party, typeOfWood)
 			party : _.kebabCase(tempDoc.party),
 			typeOfWood : _.kebabCase(tempDoc.typeOfWood)
 		});
-		naggDetail.save();
+		// naggDetail.save();
 		hisaabInstance.naggs.push(naggDetail);
 		console.log("\n\nDoc saved to nagg collection\n\n");
 		naggDetailArray.push(tempDoc);
@@ -446,7 +446,7 @@ function separatingReceivedArraysVD (nw, k, m, pmf, pw, date, party, typeOfWood)
 				party : _.kebabCase(tempDoc.party),
 				typeOfWood : tempDoc.typeOfWood
 			});
-			naggDetail.save();
+			// naggDetail.save();
 			hisaabInstance.naggs.push(naggDetail);
 			console.log("\n\nDoc saved to nagg collection\n\n");
 			naggDetailArray.push(tempDoc);
