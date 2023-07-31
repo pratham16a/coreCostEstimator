@@ -12,7 +12,7 @@ app.set('view engine', 'ejs');
 app.locals._ = _;
 const connectDB = async () => {
   try {
-    const conn = await mongoose.connect(process.env.MONGO_URI, {useNewUrlParser : true});
+    const conn = await mongoose.connect("mongodb+srv://pratham16a:Makunga98150@cluster0.ogn0vye.mongodb.net/AWWDB", {useNewUrlParser : true});
     console.log(`MongoDB Connected: ${conn.connection.host}`);
   } catch (error) {
     console.log(error);
