@@ -10,14 +10,15 @@ app.use(bodyParser.urlencoded({extended : true}));
 app.use(express.static("public"));
 app.set('view engine', 'ejs');
 app.locals._ = _;
-mongoose.connect(process.env.MONGO_URI);
-connectionPromise = mongoose.connection.asPromise();
-connectionPromise.then(()=>{
-	console.log("successfully connected to ${conn.connection.host}");
-	app.listen(port, function(){
-	console.log("listening on port : " + port);
-});
-});
+const connectDB = async () => {
+  try {
+    const conn = await mongoose.connect(process.env.MONGO_URI);
+    console.log(`MongoDB Connected: ${conn.connection.host}`);
+  } catch (error) {
+    console.log(error);
+    process.exit(1);
+  }
+}
 
 //---------------------------------------------------MongoDB Schemas and models
 const NaggSchema = new mongoose.Schema({
@@ -455,4 +456,10 @@ function separatingReceivedArraysVD (nw, k, m, pmf, pw, date, party, typeOfWood)
 	;
 	
 }
+
+connectDB().then(() => {
+    app.listen(PORT, () => {
+        console.log("listening for requests");
+    })
+})
 
